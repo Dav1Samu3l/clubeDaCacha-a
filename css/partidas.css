@@ -1,0 +1,134 @@
+/* partida.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.4; /* Reduzi o line-height para compactar */
+}
+
+a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    color: #d4af37;
+    text-align: center;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#sortear-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#sortear-btn:hover {
+    background-color: #c9a227;
+}
+
+#jogadores-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.jogador-item {
+    background-color: #2a2a2a;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.jogador-item h3 {
+    color: #d4af37;
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+}
+
+.jogador-item p {
+    margin: 4px 0;
+    font-size: 0.85em;
+}
+
+#partidas-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+}
+
+.partida-item {
+    background-color: #3a3a3a;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.jogadores-partida {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.jogador {
+    text-align: center;
+}
+
+.vs {
+    font-weight: bold;
+    color: #d4af37;
+    font-size: 20px;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+body::after {
+    content: "© 2025 Davi Samuel da Silva - Todos os direitos reservados";
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    padding: 15px;
+    color: #d4af37;
+    font-size: 14px;
+}
+body > p, body > li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+body > p a, body > li a {
+    padding: 5px 10px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+body > p a:hover, body > li a:hover {
+    background-color: #3a3a3a;
+    text-decoration: none;
+}
