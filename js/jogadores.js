@@ -17,14 +17,23 @@ function renderizarJogadores() {
         jogadorElement.className = 'jogador-item';
         jogadorElement.innerHTML = `
             <div class="jogador-info">
-                 <h3>${jogador.nome}</h3>
+                <h3>${jogador.nome}</h3>
                 <p><strong>Fichas:</strong> ${jogador.Fichas}</p>
                 <p><strong>Valor Apostado:</strong> R$ ${jogador.valorApostado.toFixed(2)}</p>
                 <p><strong>Valor Total:</strong> R$ ${jogador.valorTotal.toFixed(2)}</p>
                 <p><strong>ID-jogador:</strong> **${jogador.id}**</p>
+                <button class="btn-excluir" data-id="${jogador.id}">Excluir</button>
             </div>
         `;
         listaJogadores.appendChild(jogadorElement);
+    });
+
+    // Adiciona event listeners aos botões de exclusão
+    document.querySelectorAll('.btn-excluir').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const id = parseInt(this.getAttribute('data-id'));
+            removerJogador(id);
+        });
     });
 }
 
