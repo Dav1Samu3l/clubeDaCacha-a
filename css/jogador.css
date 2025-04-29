@@ -92,3 +92,79 @@ body > p a:hover, body > li a:hover {
     background-color: #3a3a3a;
     text-decoration: none;
 }
+/* Modal de Exclusão */
+.modal-exclusao {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.modal-conteudo h3 {
+    color: #d4af37;
+    margin-top: 0;
+}
+
+.modal-conteudo p {
+    margin-bottom: 25px;
+}
+
+.modal-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-cancelar, .btn-confirmar {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-cancelar {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+.btn-cancelar:hover {
+    background-color: #555;
+}
+
+.btn-confirmar {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-confirmar:hover {
+    background-color: #c9302c;
+}
+
+/* Melhoria nos cards para indicar que são clicáveis */
+.jogador-item {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.jogador-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

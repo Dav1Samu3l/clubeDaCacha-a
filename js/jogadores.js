@@ -9,12 +9,28 @@ function renderizarJogadores() {
         return;
     }
 
+    // Cria o modal (será reutilizado)
+    const modal = document.createElement('div');
+    modal.className = 'modal-exclusao';
+    modal.innerHTML = `
+        <div class="modal-conteudo">
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este jogador?</p>
+            <div class="modal-botoes">
+                <button class="btn-cancelar">Cancelar</button>
+                <button class="btn-confirmar">Excluir</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
     jogadores.forEach(jogador => {
         const valorApostado = typeof jogador.valorApostado === 'number' ? jogador.valorApostado : parseFloat(jogador.valorApostado) || 0;
         const valorTotal = typeof jogador.valorTotal === 'number' ? jogador.valorTotal : parseFloat(jogador.valorTotal) || 0;
 
         const jogadorElement = document.createElement('div');
         jogadorElement.className = 'jogador-item';
+        jogadorElement.setAttribute('data-id', jogador.id);
         jogadorElement.innerHTML = `
             <div class="jogador-info">
                 <h3>${jogador.nome}</h3>
@@ -22,18 +38,31 @@ function renderizarJogadores() {
                 <p><strong>Valor Apostado:</strong> R$ ${jogador.valorApostado.toFixed(2)}</p>
                 <p><strong>Valor Total:</strong> R$ ${jogador.valorTotal.toFixed(2)}</p>
                 <p><strong>ID-jogador:</strong> **${jogador.id}**</p>
-                <button class="btn-excluir" data-id="${jogador.id}">Excluir</button>
             </div>
         `;
         listaJogadores.appendChild(jogadorElement);
+
+        //  evento de clique no card
+        jogadorElement.addEventListener('click', function(e) {
+            // Impede que o clique no modal propague para o card
+            if (e.target.closest('.modal-conteudo')) return;
+            
+            const modal = document.querySelector('.modal-exclusao');
+            modal.style.display = 'flex';
+            modal.setAttribute('data-current-id', jogador.id);
+        });
     });
 
-    // Adiciona event listeners aos botões de exclusão
-    document.querySelectorAll('.btn-excluir').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const id = parseInt(this.getAttribute('data-id'));
-            removerJogador(id);
-        });
+    // Configura os botões do modal
+    document.querySelector('.btn-cancelar').addEventListener('click', function() {
+        document.querySelector('.modal-exclusao').style.display = 'none';
+    });
+
+    document.querySelector('.btn-confirmar').addEventListener('click', function() {
+        const modal = document.querySelector('.modal-exclusao');
+        const id = parseInt(modal.getAttribute('data-current-id'));
+        modal.style.display = 'none';
+        removerJogador(id);
     });
 }
 
@@ -51,5 +80,6 @@ function removerJogador(id) {
     localStorage.setItem('jogadores', JSON.stringify(jogadores));
     renderizarJogadores();
 }
+
 
 window.addEventListener('DOMContentLoaded', renderizarJogadores);
