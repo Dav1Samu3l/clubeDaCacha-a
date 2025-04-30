@@ -1,6 +1,6 @@
+let intervaloContador;
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const partidasContainer = document.getElementById('partidas-container');
     const atualizarBtn = document.getElementById('atualizar-btn');
     const ultimaAtualizacao = document.getElementById('ultima-atualizacao');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         partidasRecentes.forEach((partida, index) => {
             const partidaElement = document.createElement('div');
             partidaElement.className = 'partida-card';
-            
+
             partidaElement.innerHTML = `
                 <div class="partida-header">
                     <h3>Partida:  ${index + 1}</h3>
@@ -59,40 +59,57 @@ document.addEventListener('DOMContentLoaded', function() {
             partidasContainer.appendChild(partidaElement);
         });
 
-        // Atualiza o timestamp
-        ultimaAtualizacao.textContent = `Última atualização: ${new Date().toLocaleTimeString()}`;
+        if (intervaloContador) {
+            clearInterval(intervaloContador);
+        }
+
+        // Inicia uma nova contagem regressiva
+        let segundos = 31;
+        ultimaAtualizacao.textContent = `${segundos}s`; // Atualiza imediatamente
+
+        intervaloContador = setInterval(() => {
+            segundos--;
+            ultimaAtualizacao.textContent = `${segundos}s`;
+
+            // Para ao chegar em 0 (opcional)
+            if (segundos <= 0) {
+                clearInterval(intervaloContador);
+            }
+        }, 1000);
     }
+
 
     // Configura auto-atualização a cada 30 segundos
     let intervaloAtualizacao = setInterval(carregarPartidas, 30000);
 
-    // Botão de atualização manual
-    atualizarBtn.addEventListener('click', function() {
-        carregarPartidas();
-        // Reinicia o intervalo
-        clearInterval(intervaloAtualizacao);
-        intervaloAtualizacao = setInterval(carregarPartidas, 30000);
-    });
-
-    // Inicializa
+// Botão de atualização manual
+atualizarBtn.addEventListener('click', function () {
     carregarPartidas();
+    // Reinicia o intervalo
+    clearInterval(intervaloAtualizacao);
+    intervaloAtualizacao = setInterval(carregarPartidas, 30000);
+});
 
-    // Monitora alterações em outras abas
-    const channel = new BroadcastChannel('sinuca-updates');
-    channel.onmessage = function(e) {
-        if (e.data.type === 'partidas-updated') {
-            carregarPartidas();
-        }
-    };
+// Inicializa
+carregarPartidas();
+
+    // // Monitora alterações em outras abas
+    // const channel = new BroadcastChannel('sinuca-updates');
+    // channel.onmessage = function(e) {
+    //     if (e.data.type === 'partidas-updated') {
+    //         carregarPartidas();
+    //     }
+    // };
 });
 
 function atualizarDadosPeriodicamente() {
     if (typeof renderizarJogadores === 'function') {
         renderizarJogadores();
     }
-    
+
     // Agenda a próxima atualização
     setTimeout(atualizarDadosPeriodicamente, 1000);
 }
 
 atualizarDadosPeriodicamente();
+
