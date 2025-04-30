@@ -1,5 +1,5 @@
 // verificaExpiracao.js
-const dataExpiracao = '2024-04-30'; 
+const dataExpiracao = '';
 function verificarExpiracao() {
     const hoje = new Date();
     const expiracao = new Date(dataExpiracao);
@@ -11,7 +11,9 @@ function verificarExpiracao() {
                 <h1>⚠️ Sistema Expirado ⚠️</h1>
                 <p>Este sistema não está mais disponível após ${dataExpiracao}.</p>
                 <p>Contate o administrador.</p>
-            </div>
+              <p>Para mais informações, acesse o <a class:"contato_desenvolvedor" href="https://dav1samu3l.github.io/portifolio.github.io/" target="_blank">site oficial</a></p>
+               <img src="./assets/baixados.png" alt="">
+              </div>
         `;
         // Encerra scripts adicionais (opcional)
         throw new Error('Sistema expirado.');

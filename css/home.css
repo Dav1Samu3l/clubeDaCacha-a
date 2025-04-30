@@ -71,3 +71,7 @@ html::after {
     color: #d4af37;
     font-size: 14px;
 }
+
+.contato_desenvolvedor{
+    background-color: none important;
+}
