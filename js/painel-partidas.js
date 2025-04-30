@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             partidaElement.innerHTML = `
                 <div class="partida-header">
-                    <h3>Mesa ${index + 1}</h3>
+                    <h3>Partida:  ${index + 1}</h3>
                     <span class="hora">${new Date(partida.data).toLocaleTimeString()}</span>
                 </div>
                 <div class="jogadores-partida">
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <div class="partida-status">
-                    <span class="status">EM ANDAMENTO</span>
                 </div>
             `;
             partidasContainer.appendChild(partidaElement);

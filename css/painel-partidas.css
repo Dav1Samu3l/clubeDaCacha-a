@@ -136,4 +136,45 @@ footer {
     font-size: 0.8em;
     color: #666;
     border-top: 1px solid #333;
+}/* Estilos para os botões de status */
+.btn-andamento, .btn-encerrada {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-andamento {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-andamento:hover {
+    background-color: #3e8e41;
+}
+
+.btn-encerrada {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-encerrada:hover {
+    background-color: #d32f2f;
+}
+
+.partida-footer {
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Destaque para partidas encerradas */
+.partida-item.encerrada {
+    opacity: 0.8;
+    border-left: 4px solid #f44336;
 }
