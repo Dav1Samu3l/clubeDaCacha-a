@@ -180,3 +180,14 @@ footer {
     opacity: 0.8;
     border-left: 4px solid #f44336;
 }
+
+html::after {
+    content: "© 2025 Club da Cachaça \A - Ix1DEA ltda - \A Todos os direitos reservados";
+    display: block;
+    white-space: pre;
+    text-align: center;
+    margin-top: 50px;
+    padding: 15px;
+    color: #d4af37;
+    font-size: 14px;
+}
