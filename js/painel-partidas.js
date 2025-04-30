@@ -1,9 +1,10 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const partidasContainer = document.getElementById('partidas-container');
     const atualizarBtn = document.getElementById('atualizar-btn');
     const ultimaAtualizacao = document.getElementById('ultima-atualizacao');
 
-    // Função principal para carregar partidas
     function carregarPartidas() {
         const partidas = JSON.parse(localStorage.getItem('partidas')) || [];
         partidasContainer.innerHTML = '';
