@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const partidasRecentes = partidas.filter(partida => {
             const diff = (new Date() - new Date(partida.data)) / (1000 * 60 * 60);
             return diff < 2;
-        });
+        }).reverse();
 
         if (partidasRecentes.length === 0) {
             partidasContainer.innerHTML = '<p class="sem-partidas">Nenhuma partida ativa no momento</p>';
