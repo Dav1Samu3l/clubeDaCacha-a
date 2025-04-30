@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const jogadoresContainer = document.getElementById('jogadores-container');
     const partidasContainer = document.getElementById('partidas-container');
     const sortearBtn = document.getElementById('sortear-btn');
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carrega jogadores do localStorage
     function carregarJogadores() {
         const jogadores = JSON.parse(localStorage.getItem('jogadores')) || [];
-        
+
         if (jogadores.length === 0) {
             jogadoresContainer.innerHTML = '<p>Nenhum jogador cadastrado.</p>';
             sortearBtn.disabled = true;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carrega partidas salvas no localStorage
     function carregarPartidasSalvas() {
         const partidasSalvas = JSON.parse(localStorage.getItem('partidas')) || [];
-        
+
         if (partidasSalvas.length > 0) {
             partidasContainer.innerHTML = '<h2>Partidas Anteriores</h2>';
             partidasSalvas.forEach((partida, index) => {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="vs">VS</div>
                         <div class="jogador">
                         <h4>${partida.jogador2?.nome || 'BYE'}</h4>
-                        <p>id-jogador${partida.jogador2.id}</p>                        </div>
+                        <p>id-jogador${partida.jogador2.id}</p></div>
                     </div>
                 `;
                 partidasContainer.appendChild(partidaElement);
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function sortearPartidas() {
 
         const jogadores = JSON.parse(localStorage.getItem('jogadores')) || [];
-        
+
         if (jogadores.length < 2) {
             alert('É necessário pelo menos 2 jogadores para sortear partidas!');
             return;
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Embaralha os jogadores
         const jogadoresEmbaralhados = [...jogadores].sort(() => Math.random() - 0.5);
         const novasPartidas = [];
-        
+
         partidasContainer.innerHTML = '<h2>Novas Partidas</h2>';
 
         // Cria os confrontos
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="vs">VS</div>
                     <div class="jogador">
                         <h4>${partida.jogador2?.nome || 'BYE'}</h4>
-                        ${partida.jogador2 ? `<p>${partida.jogador2.frequente ? 'Frequente' : 'Ocasional'}</p>` : ''}
                     </div>
                 </div>
             `;
@@ -113,6 +112,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicialização
     carregarJogadores();
-});   
+});
 
 localStorage.clear
+
+
+//     /* ${partida.jogador2 ? `<p>${partida.jogador2.frequente ? 'Frequente' : 'Ocasional'}</p>` : ''}*/
