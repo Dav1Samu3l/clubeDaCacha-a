@@ -80,6 +80,4 @@ function removerJogador(id) {
     localStorage.setItem('jogadores', JSON.stringify(jogadores));
     renderizarJogadores();
 }
-
-
 window.addEventListener('DOMContentLoaded', renderizarJogadores);

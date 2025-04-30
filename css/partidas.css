@@ -1,11 +1,10 @@
-/* partida.css */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a1a1a;
     color: #e0e0e0;
     margin: 0;
     padding: 20px;
-    line-height: 1.4; /* Reduzi o line-height para compactar */
+    line-height: 1.4;
 }
 
 a {
@@ -55,7 +54,7 @@ h1 {
     background-color: #2a2a2a;
     padding: 12px;
     border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
@@ -116,19 +115,23 @@ body::after {
     color: #d4af37;
     font-size: 14px;
 }
-body > p, body > li {
+
+body>p,
+body>li {
     display: inline-block;
     margin-right: 15px;
 }
 
-body > p a, body > li a {
+body>p a,
+body>li a {
     padding: 5px 10px;
     background-color: #2a2a2a;
     border-radius: 4px;
     transition: background-color 0.3s;
 }
 
-body > p a:hover, body > li a:hover {
+body>p a:hover,
+body>li a:hover {
     background-color: #3a3a3a;
     text-decoration: none;
 }

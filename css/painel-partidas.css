@@ -136,7 +136,9 @@ footer {
     font-size: 0.8em;
     color: #666;
     border-top: 1px solid #333;
-}/* Estilos para os botões de status */
+}
+
+/* Estilos para os botões de status */
 .btn-andamento, .btn-encerrada {
     padding: 6px 12px;
     border: none;

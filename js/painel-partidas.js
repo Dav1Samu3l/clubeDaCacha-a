@@ -85,9 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-
-
-
 function atualizarDadosPeriodicamente() {
     if (typeof renderizarJogadores === 'function') {
         renderizarJogadores();
