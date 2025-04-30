@@ -13,7 +13,7 @@ document.getElementById('form-jogador').addEventListener('submit', function (e) 
         valorApostado: valorApostado,
         Fichas: Fichas,
         valorTotal: calcularValorTotal(valorApostado),
-        frequente: document.querySelector('input[name="frequente"]').checked,
+        //frequente: document.querySelector('input[name="frequente"]').checked,
         id: Date.now(),
         data: new Date().toLocaleString('pt-BR', {
             day: '2-digit',
